@@ -50,6 +50,7 @@ const Row = styled.View`
 
 const OpenContainer = styled.View`
   flex-direction: row-reverse;
+  margin-horizontal: ${(props) => props.theme.space[2]};
 `;
 
 const OpenIcon = () => (
@@ -75,6 +76,7 @@ const SectionEnd = styled.View`
   flex: 1;
   flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
 `;
 
 const ClosedLabel = styled.Text`
@@ -82,9 +84,9 @@ const ClosedLabel = styled.Text`
 `;
 
 const RestaurantIcon = styled.Image`
-  width: 15;
-  height: 15;
-  padding: ${(props) => props.theme.space[1]};
+  width: ${(props) => props.theme.sizes[1]};
+  height: ${(props) => props.theme.sizes[1]};
+  margin-left: ${(props) => props.theme.space[2]};
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -98,7 +100,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     address = "100, Random Street, Random Citys",
     isOpenNow = true,
     rating = 4,
-    isClosedTemporarily,
+    isClosedTemporarily = true,
   } = restaurant;
 
   const imageSrc = {
@@ -117,20 +119,22 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
       <CardCover key={name} source={imageSrc} />
       <RestaurantInfo>
         <RestaurantTitle>{name}</RestaurantTitle>
-        <Row>
+        <Section>
           <RestaurantRatingsContainer>
             {RestaurantRatings(rating)}
           </RestaurantRatingsContainer>
-          {isClosedTemporarily && (
-            <ClosedLabel variant="label">Closed Temporarily</ClosedLabel>
-          )}
-          {isOpenNow && (
-            <OpenContainer>
-              <Open />
-            </OpenContainer>
-          )}
-          <RestaurantIcon source={iconSource} />
-        </Row>
+          <SectionEnd>
+            {isClosedTemporarily && (
+              <ClosedLabel variant="label">Closed Temporarily</ClosedLabel>
+            )}
+            {isOpenNow && (
+              <OpenContainer>
+                <Open />
+              </OpenContainer>
+            )}
+            <RestaurantIcon source={iconSource} />
+          </SectionEnd>
+        </Section>
         <RestaurantAddress>{address}</RestaurantAddress>
       </RestaurantInfo>
     </RestaurantCard>
