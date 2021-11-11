@@ -6,6 +6,7 @@ import { SvgXml } from "react-native-svg";
 
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
+import { Spacer } from "../../../components/spacer/spacer.component";
 
 const RestaurantTitle = styled.Text`
   font-family: ${(props) => props.theme.fonts.heading};
@@ -50,7 +51,6 @@ const Row = styled.View`
 
 const OpenContainer = styled.View`
   flex-direction: row-reverse;
-  margin-horizontal: ${(props) => props.theme.space[2]};
 `;
 
 const OpenIcon = () => (
@@ -86,7 +86,6 @@ const ClosedLabel = styled.Text`
 const RestaurantIcon = styled.Image`
   width: ${(props) => props.theme.sizes[1]};
   height: ${(props) => props.theme.sizes[1]};
-  margin-left: ${(props) => props.theme.space[2]};
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -100,7 +99,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     address = "100, Random Street, Random Citys",
     isOpenNow = true,
     rating = 4,
-    isClosedTemporarily = true,
+    isClosedTemporarily,
   } = restaurant;
 
   const imageSrc = {
@@ -125,12 +124,18 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
           </RestaurantRatingsContainer>
           <SectionEnd>
             {isClosedTemporarily && (
-              <ClosedLabel variant="label">Closed Temporarily</ClosedLabel>
+              <>
+                <ClosedLabel variant="label">Closed Temporarily</ClosedLabel>
+                <Spacer variant="left.medium" />
+              </>
             )}
-            {isOpenNow && (
-              <OpenContainer>
-                <Open />
-              </OpenContainer>
+            {isOpenNow && !isClosedTemporarily && (
+              <>
+                <OpenContainer>
+                  <Open />
+                </OpenContainer>
+                <Spacer variant="left.large" />
+              </>
             )}
             <RestaurantIcon source={iconSource} />
           </SectionEnd>
