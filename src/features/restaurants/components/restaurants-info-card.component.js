@@ -123,21 +123,21 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             {RestaurantRatings(rating)}
           </RestaurantRatingsContainer>
           <SectionEnd>
-            {isClosedTemporarily && (
-              <>
+            <Spacer position="left" size="medium">
+              {isClosedTemporarily && (
                 <ClosedLabel variant="label">Closed Temporarily</ClosedLabel>
-                <Spacer variant="left.medium" />
-              </>
-            )}
-            {isOpenNow && !isClosedTemporarily && (
-              <>
+              )}
+            </Spacer>
+            <Spacer position="left" size="medium">
+              {isOpenNow && !isClosedTemporarily && (
                 <OpenContainer>
                   <Open />
                 </OpenContainer>
-                <Spacer variant="left.large" />
-              </>
-            )}
-            <RestaurantIcon source={iconSource} />
+              )}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <RestaurantIcon source={iconSource} />
+            </Spacer>
           </SectionEnd>
         </Section>
         <RestaurantAddress>{address}</RestaurantAddress>
