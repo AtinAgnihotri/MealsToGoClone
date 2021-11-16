@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 // import { RestaurantScreen } from "./src/features/restaurants/screens/restaurants.screen";
 import { DummyScreen } from "./navutils.devhelper";
 import { RestaurantsNavigator } from "./restaurants.navigator";
+import { MapScreen } from "../../features/map/screens/map.screen";
 import { SafeArea } from "../../components/utilities/safe-area.component";
 
 const Tab = createBottomTabNavigator();
@@ -36,7 +37,7 @@ export const AppNavigator = () => (
         />
         <Tab.Screen
           name="Maps"
-          component={Maps}
+          component={MapScreen}
           options={{
             tabBarLabel: "Maps",
             tabBarIcon: ({ color, size }) => (
