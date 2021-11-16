@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Searchbar } from "react-native-paper";
+import { TouchableOpacity } from "react-native";
 
 import { RestaurantInfoCard } from "../components/restaurants-info-card.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -9,7 +9,7 @@ import { LoadingState, RestaurantList } from "./restaurants.styles";
 import { Search } from "../components/search.component";
 
 // Every styled component gets theme as their props
-export const RestaurantScreen = () => {
+export const RestaurantScreen = ({ navigation }) => {
   const { restaurants, isLoading, loadingError } =
     useContext(RestaurantContext);
   return (
@@ -21,9 +21,15 @@ export const RestaurantScreen = () => {
           data={restaurants}
           renderItem={({ item }) => {
             return (
-              <Spacer position="bottom" size="large">
-                <RestaurantInfoCard restaurant={item} />
-              </Spacer>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("RestaurantDetails", { item })
+                }
+              >
+                <Spacer position="bottom" size="large">
+                  <RestaurantInfoCard restaurant={item} />
+                </Spacer>
+              </TouchableOpacity>
             );
           }}
           keyExtractor={(item) => item.name}

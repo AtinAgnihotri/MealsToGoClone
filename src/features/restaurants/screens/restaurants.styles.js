@@ -14,14 +14,6 @@ const LoaderContainer = styled.View`
   flex: 1;
 `;
 
-const Loader = styled(ActivityIndicator).attrs((props) => ({
-  animating: true,
-}))`
-  color: tomato;
-  width: ${(props) => props.theme.sizes[4]};
-  height: ${(props) => props.theme.sizes[4]};
-`;
-
 export const LoadingState = () => (
   <LoaderContainer>
     <ActivityIndicator size="large" color="tomato" animating={true} />

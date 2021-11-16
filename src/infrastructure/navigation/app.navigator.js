@@ -1,11 +1,10 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { View, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 // import { RestaurantScreen } from "./src/features/restaurants/screens/restaurants.screen";
-
+import { DummyScreen } from "./navutils.devhelper";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SafeArea } from "../../components/utilities/safe-area.component";
 
@@ -60,12 +59,12 @@ export const AppNavigator = () => (
   </SafeArea>
 );
 
-const DummyScreen = (name) => {
-  return (
-    <SafeArea>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>{name}</Text>
-      </View>
-    </SafeArea>
-  );
-};
+// const DummyScreen = (name) => {
+//   return (
+//     <SafeArea>
+//       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+//         <Text>{name}</Text>
+//       </View>
+//     </SafeArea>
+//   );
+// };
