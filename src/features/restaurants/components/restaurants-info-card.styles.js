@@ -30,9 +30,9 @@ export const RestaurantRatingsContainer = styled.View`
   padding-bottom: ${(props) => props.theme.space[2]};
 `;
 
-export const RestaurantRatings = (ratings) =>
-  Array.from(new Array(Math.floor(ratings))).map(() => (
-    <SvgXml xml={star} width={20} height={20} />
+export const RestaurantRatings = (ratings, placeId) =>
+  Array.from(new Array(Math.floor(ratings))).map((_, i) => (
+    <SvgXml xml={star} width={20} height={20} key={`star-${placeId}-${i}`} />
   ));
 
 export const OpenContainer = styled.View`

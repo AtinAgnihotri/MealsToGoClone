@@ -1,45 +1,34 @@
-import React from "react";
-// import { StatusBar, FlatList, StyleSheet } from "react-native";
+import React, { useContext } from "react";
 import { Searchbar } from "react-native-paper";
-import styled from "styled-components";
 
 import { RestaurantInfoCard } from "../components/restaurants-info-card.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { SafeArea } from "../../../components/utilities/safe-area.component";
+import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
+import { LoadingState, RestaurantList } from "./restaurants.styles";
+import { Search } from "../components/search.component";
 
 // Every styled component gets theme as their props
-const SearchView = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const RestaurantList = styled.FlatList.attrs({
-  contentContainerStyle: {
-    padding: 16,
-  },
-})``;
-
-export const RestaurantScreen = () => (
-  <SafeArea>
-    <SearchView>
-      <Searchbar />
-    </SearchView>
-    <RestaurantList
-      data={[
-        { name: 1 },
-        { name: 2 },
-        { name: 3 },
-        { name: 4 },
-        { name: 5 },
-        { name: 6 },
-        { name: 7 },
-        { name: 8 },
-      ]}
-      renderItem={() => (
-        <Spacer position="bottom" size="large">
-          <RestaurantInfoCard />
-        </Spacer>
+export const RestaurantScreen = () => {
+  const { restaurants, isLoading, loadingError } =
+    useContext(RestaurantContext);
+  return (
+    <SafeArea>
+      <Search />
+      {isLoading && <LoadingState />}
+      {!isLoading && restaurants && (
+        <RestaurantList
+          data={restaurants}
+          renderItem={({ item }) => {
+            return (
+              <Spacer position="bottom" size="large">
+                <RestaurantInfoCard restaurant={item} />
+              </Spacer>
+            );
+          }}
+          keyExtractor={(item) => item.name}
+        />
       )}
-      keyExtractor={(item) => item.name}
-    />
-  </SafeArea>
-);
+    </SafeArea>
+  );
+};

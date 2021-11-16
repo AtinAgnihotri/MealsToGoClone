@@ -120,7 +120,6 @@ const getVariant = (position, size, theme) => {
   const sizeIndex = spacerSizes[size];
   const property = spacerPositions[position];
   const value = theme.space[sizeIndex];
-  console.log(`${property}:${value}`);
   return `${property}:${value}`;
 };
 

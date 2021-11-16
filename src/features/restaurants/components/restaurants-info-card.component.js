@@ -19,7 +19,7 @@ import {
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = "Some Restaurant",
-    icon,
+    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
     photos = [
       "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Nanjing_Hunan_Road_Ajisen_Ramen.jpg/1600px-Nanjing_Hunan_Road_Ajisen_Ramen.jpg",
@@ -28,18 +28,16 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily,
+    placeId,
   } = restaurant;
 
   const imageSrc = {
-    uri: photos[1],
-  };
-
-  const iconSource = {
     uri: photos[0],
   };
 
-  const ratingArr = Array.from(new Array(Math.floor(rating)));
-  console.log(ratingArr); //
+  const iconSource = {
+    uri: icon,
+  };
 
   return (
     <RestaurantCard elevation={5}>
@@ -48,7 +46,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         <Text variant="label">{name}</Text>
         <Section>
           <RestaurantRatingsContainer>
-            {RestaurantRatings(rating)}
+            {RestaurantRatings(rating, placeId)}
           </RestaurantRatingsContainer>
           <SectionEnd>
             <Spacer position="left" size="medium">
