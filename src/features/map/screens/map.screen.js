@@ -13,7 +13,7 @@ const Map = styled(MapView)`
   height: 100%;
 `;
 
-export const MapScreen = () => {
+export const MapScreen = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantContext);
 
@@ -21,7 +21,10 @@ export const MapScreen = () => {
 
   const [latDelta, setLatDelta] = useState(0);
 
-  console.log(viewport);
+  const openRestaurantDetails = (restaurant) => {
+    // navigateToRestaurantsTab();
+    navigation.navigate("RestaurantDetails", { restaurant });
+  };
 
   useEffect(() => {
     const northEastLat = viewport.northeast.lat;
@@ -51,7 +54,13 @@ export const MapScreen = () => {
                 latitude: restaurant.geometry.location.lat,
               }}
             >
-              <MapView.Callout>
+              <MapView.Callout
+                onPress={() =>
+                  navigation.navigate("RestaurantDetails", {
+                    item: restaurant,
+                  })
+                }
+              >
                 <MapCallout restaurant={restaurant} />
               </MapView.Callout>
             </MapView.Marker>

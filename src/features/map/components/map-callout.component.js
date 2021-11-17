@@ -24,12 +24,5 @@ export const MapCallout = ({ restaurant }) => {
     uri: photos[0],
   };
 
-  //   return (
-  //     <RestaurantCalloutContainer>
-  //       <RestaurantImage source={imageSrc} />
-  //       <Text variant="caption">{name}</Text>
-  //     </RestaurantCalloutContainer>
-  //   );
-
   return <CompactRestaurantInfo restaurant={restaurant} />;
 };
