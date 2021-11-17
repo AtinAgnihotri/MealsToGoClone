@@ -3,11 +3,16 @@ import MapView from "react-native-maps";
 import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
+import { Search } from "../components/search.component";
+
 const Map = styled(MapView)`
-  width: ${Dimensions.get("window").width}px;
-  flex: 1;
+  width: 100%;
+  height: 100%;
 `;
 
-export const MapScreen = () => {
-  return <Map />;
-};
+export const MapScreen = () => (
+  <>
+    <Search />
+    <Map />
+  </>
+);
