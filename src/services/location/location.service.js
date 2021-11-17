@@ -13,5 +13,7 @@ export const locationRequest = (searchTerm) => {
 export const transformLocation = (result) => {
   const { geometry = {} } = camelize(result.results)[0];
   const { lat, lng } = geometry.location;
-  return { lat, lng };
+  const viewport = geometry.viewport;
+
+  return { lat, lng, viewport };
 };
