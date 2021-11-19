@@ -46,12 +46,7 @@ export const LoginScreen = ({ navigation }) => {
     <>
       <AccountBackground>
         <AccountContainer>
-          {isLoading && (
-            <>
-              <AccountLoader />
-              <Text>Loading</Text>
-            </>
-          )}
+          {isLoading && <AccountLoader />}
           {!isLoading && <LoginDialog onLogin={onLogin} />}
         </AccountContainer>
         {!isLoading && (

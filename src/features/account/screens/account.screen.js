@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ImageBackground, Text } from "react-native";
 import { Button } from "react-native-paper";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -8,9 +8,13 @@ import {
   AccountBackground,
   AccountContainer,
   AccountButton,
+  AccountLoader,
 } from "../components/account.styles";
+import { AccountDialog } from "../components/account-dialog.component";
+import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
 export const AccountScreen = ({ navigation }) => {
+  const { isInitializing } = useContext(AuthenticationContext);
   const proceedToLogin = () => {
     navigation.navigate("Login");
   };
@@ -21,24 +25,13 @@ export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountContainer>
-        <AccountButton
-          icon="login"
-          mode="contained"
-          //   accessibilityLabel="Login with your meals to go account"
-          onPress={proceedToLogin}
-        >
-          Login
-        </AccountButton>
-        <Spacer size="large">
-          <AccountButton
-            icon="account-edit"
-            mode="contained"
-            //   accessibilityLabel="Register for a meals to go account"
-            onPress={proceedToRegister}
-          >
-            Register
-          </AccountButton>
-        </Spacer>
+        {isInitializing && <AccountLoader />}
+        {!isInitializing && (
+          <AccountDialog
+            proceedToLogin={proceedToLogin}
+            proceedToRegister={proceedToRegister}
+          />
+        )}
       </AccountContainer>
     </AccountBackground>
   );

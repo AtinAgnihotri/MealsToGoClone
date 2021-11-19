@@ -49,12 +49,7 @@ export const RegisterScreen = ({ navigation }) => {
     <>
       <AccountBackground>
         <AccountContainer>
-          {isLoading && (
-            <>
-              <AccountLoader />
-              <Text>Loading</Text>
-            </>
-          )}
+          {isLoading && <AccountLoader />}
 
           {!isLoading && <RegisterDialog onRegister={onRegister} />}
         </AccountContainer>

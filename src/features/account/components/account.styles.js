@@ -60,9 +60,16 @@ export const AccountInput = styled(TextInput).attrs({
   width: ${(props) => props.theme.sizes[5]};
 `;
 
-export const AccountLoader = styled(Loader).attrs({
+export const AccountLoadingState = styled(Loader).attrs({
   color: colors.brand.primary,
 })`
   width: ${(props) => props.theme.sizes[1]};
   height: ${(props) => props.theme.sizes[1]};
 `;
+
+export const AccountLoader = () => (
+  <>
+    <AccountLoadingState />
+    <Text>Loading</Text>
+  </>
+);
