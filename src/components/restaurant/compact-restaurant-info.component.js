@@ -7,12 +7,10 @@ import WebView from "react-native-webview";
 import { Text } from "../typography/text.component";
 
 const CompactContainer = styled.View`
-  justify-content: center;
   align-items: center;
-  max-width: ${(props) => props.theme.sizes[5]};
   padding: ${(props) => props.theme.space[1]};
+  max-width: ${(props) => props.theme.sizes[5]};
   border-radius: ${(props) => props.theme.sizes[0]};
-  flex: 1;
 `;
 
 const CompactImage = styled.Image`
@@ -29,20 +27,19 @@ const CompactWebView = styled(WebView)`
 
 const isAndroid = Platform.OS === "android";
 
-export const CompactRestaurantInfo = ({ restaurant }) => {
+export const CompactRestaurantInfo = ({ restaurant, isMapCallout = true }) => {
   const { name, photos } = restaurant;
   const imageSrc = {
     uri: photos[0],
   };
-  const CompactRestaurantImage = isAndroid ? CompactWebView : CompactImage;
+  const CompactRestaurantImage =
+    isMapCallout && isAndroid ? CompactWebView : CompactImage;
   return (
-    // <TouchableOpacity>
     <CompactContainer>
       <CompactRestaurantImage source={imageSrc} />
       <Text center variant="caption" numberOfLines={3}>
         {name}
       </Text>
     </CompactContainer>
-    // </TouchableOpacity>
   );
 };

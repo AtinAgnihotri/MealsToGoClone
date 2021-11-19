@@ -2,6 +2,7 @@ import React from "react";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
+import { Favourite } from "../../../components/favourites/favourite.component";
 import {
   RestaurantCard,
   RestaurantAddress,
@@ -41,6 +42,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <RestaurantCard elevation={5}>
+      <Favourite restaurant={restaurant} />
       <CardCover key={name} source={imageSrc} />
       <RestaurantInfo>
         <Text variant="label">{name}</Text>

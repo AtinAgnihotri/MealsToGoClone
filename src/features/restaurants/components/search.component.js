@@ -8,9 +8,12 @@ export const SearchView = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-export const Search = () => {
+export const Search = ({ isFavouritesToggled, onFavouritesToggle }) => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
+
+  const iconColor = isFavouritesToggled ? "tomato" : "gray";
+  const icon = isFavouritesToggled ? "heart" : "heart-outline";
 
   useEffect(() => {
     setSearchKeyword(keyword);
@@ -19,6 +22,9 @@ export const Search = () => {
   return (
     <SearchView>
       <Searchbar
+        icon={icon}
+        iconColor={iconColor}
+        onIconPress={onFavouritesToggle}
         placeholder="Search for any city"
         value={searchKeyword}
         onSubmitEditing={() => {
