@@ -25,8 +25,6 @@ export const Favourite = ({ restaurant }) => {
   const icon = isFavourited ? "heart" : "hearto";
   const color = isFavourited ? "tomato" : "white";
 
-  console.log(favourites);
-
   return (
     <FavouriteButton
       onPress={() =>

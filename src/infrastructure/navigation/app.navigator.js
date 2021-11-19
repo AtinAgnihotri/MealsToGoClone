@@ -1,5 +1,4 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -16,47 +15,45 @@ const Settings = () => DummyScreen("Settings");
 
 export const AppNavigator = () => (
   <SafeArea>
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Restaurants"
-        screenOptions={{
-          tabBarActiveTintColor: "tomato",
-          tabBarInactiveTintColor: "gray",
-          headerShown: false,
+    <Tab.Navigator
+      initialRouteName="Restaurants"
+      screenOptions={{
+        tabBarActiveTintColor: "tomato",
+        tabBarInactiveTintColor: "gray",
+        headerShown: false,
+      }}
+    >
+      <Tab.Screen
+        name="Restaurants"
+        component={RestaurantsNavigator}
+        options={{
+          tabBarLabel: "Restaurants",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="restaurant" color={color} size={size} />
+          ),
         }}
-      >
-        <Tab.Screen
-          name="Restaurants"
-          component={RestaurantsNavigator}
-          options={{
-            tabBarLabel: "Restaurants",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="restaurant" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Maps"
-          component={MapScreen}
-          options={{
-            tabBarLabel: "Maps",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="map" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Settings"
-          component={Settings}
-          options={{
-            tabBarLabel: "Settings",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="settings" color={color} size={size} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+      />
+      <Tab.Screen
+        name="Maps"
+        component={MapScreen}
+        options={{
+          tabBarLabel: "Maps",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="map" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarLabel: "Settings",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   </SafeArea>
 );
 

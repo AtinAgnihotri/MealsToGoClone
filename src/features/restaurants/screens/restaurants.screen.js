@@ -9,6 +9,7 @@ import { RestaurantContext } from "../../../services/restaurants/restaurants.con
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
 import { LoadingState, RestaurantList } from "./restaurants.styles";
 import { Search } from "../components/search.component";
+import { Loader } from "../../../components/loader/loader.component";
 
 // Every styled component gets theme as their props
 export const RestaurantScreen = ({ navigation }) => {
@@ -17,6 +18,7 @@ export const RestaurantScreen = ({ navigation }) => {
   const { favourites } = useContext(FavouritesContext);
   const [isToggled, setIsToggled] = useState(false);
   return (
+    // TODO: Maybe try removing the Safe Area
     <SafeArea>
       <Search
         isFavouritesToggled={isToggled}

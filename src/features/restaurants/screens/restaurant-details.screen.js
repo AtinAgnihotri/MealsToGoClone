@@ -12,8 +12,6 @@ import {
 
 export const RestaurantDetailsScreen = ({ route }) => {
   const { item } = route.params;
-  console.log(route);
-  // console.log(item);
 
   const [breakfastExpanded, setBreakfastExpanded] = useState(false);
   const [lunchExpanded, setLunchExpanded] = useState(false);

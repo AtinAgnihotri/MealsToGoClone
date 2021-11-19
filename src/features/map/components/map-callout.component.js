@@ -17,8 +17,6 @@ const RestaurantImage = styled.Image`
 `;
 
 export const MapCallout = ({ restaurant }) => {
-  console.log(restaurant);
-
   const { name, photos } = restaurant;
   const imageSrc = {
     uri: photos[0],
