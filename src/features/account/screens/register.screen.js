@@ -5,6 +5,7 @@ import {
   AccountButton,
   AccountContainer,
   AccountLoader,
+  AccountLabel,
 } from "../components/account.styles";
 
 import { Snackbar } from "react-native-paper";
@@ -48,6 +49,7 @@ export const RegisterScreen = ({ navigation }) => {
   return (
     <>
       <AccountBackground>
+        <AccountLabel>Register</AccountLabel>
         <AccountContainer>
           {isLoading && <AccountLoader />}
 

@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { ImageBackground, Text } from "react-native";
 import { Button } from "react-native-paper";
+import LottieView from "lottie-react-native";
+
 import { Spacer } from "../../../components/spacer/spacer.component";
 
 import { DummyScreen } from "../../../infrastructure/navigation/navutils.devhelper";
@@ -9,6 +11,8 @@ import {
   AccountContainer,
   AccountButton,
   AccountLoader,
+  AccountLabel,
+  WatermelonAnimation,
 } from "../components/account.styles";
 import { AccountDialog } from "../components/account-dialog.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
@@ -24,6 +28,8 @@ export const AccountScreen = ({ navigation }) => {
 
   return (
     <AccountBackground>
+      <WatermelonAnimation />
+      <AccountLabel>Meals To Go</AccountLabel>
       <AccountContainer>
         {isInitializing && <AccountLoader />}
         {!isInitializing && (

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
+import LottieView from "lottie-react-native";
 
 import { SafeArea } from "../../../components/utilities/safe-area.component";
 import { colors } from "../../../infrastructure/theme/colors";
@@ -15,7 +16,7 @@ const AccountBackgroundImage = styled.ImageBackground.attrs({
   align-items: center;
 `;
 
-const AccountLabel = styled.Text.attrs({
+export const AccountLabel = styled.Text.attrs({
   variant: "label",
 })`
   font-size: ${(props) => props.theme.fontSizes.h4};
@@ -32,7 +33,6 @@ export const AccountBackground = ({ children }) => (
   <SafeArea>
     <AccountBackgroundImage>
       <AccountCover />
-      <AccountLabel>Meals To Go</AccountLabel>
       {children}
     </AccountBackgroundImage>
   </SafeArea>
@@ -72,4 +72,24 @@ export const AccountLoader = () => (
     <AccountLoadingState />
     <Text>Loading</Text>
   </>
+);
+
+export const AnimationContainer = styled.View`
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  top: ${(props) => props.theme.space[2]};
+  padding: ${(props) => props.theme.space[2]};
+`;
+
+export const WatermelonAnimation = () => (
+  <AnimationContainer>
+    <LottieView
+      key="animation"
+      autoPlay
+      loop
+      resizeMode="cover"
+      source={require("../../../../assets/watermelon.json")}
+    />
+  </AnimationContainer>
 );

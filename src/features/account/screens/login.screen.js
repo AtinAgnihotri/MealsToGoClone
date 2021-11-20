@@ -5,6 +5,7 @@ import {
   AccountButton,
   AccountContainer,
   AccountLoader,
+  AccountLabel,
 } from "../components/account.styles";
 
 import { Snackbar } from "react-native-paper";
@@ -45,6 +46,7 @@ export const LoginScreen = ({ navigation }) => {
   return (
     <>
       <AccountBackground>
+        <AccountLabel>Login</AccountLabel>
         <AccountContainer>
           {isLoading && <AccountLoader />}
           {!isLoading && <LoginDialog onLogin={onLogin} />}
