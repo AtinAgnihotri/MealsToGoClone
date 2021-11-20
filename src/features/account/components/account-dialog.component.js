@@ -8,7 +8,7 @@ export const AccountDialog = ({ proceedToLogin, proceedToRegister }) => {
       <AccountButton
         icon="login"
         mode="contained"
-        //   accessibilityLabel="Login with your meals to go account"
+        accessibilityLabel="Login with your meals to go account"
         onPress={proceedToLogin}
       >
         Login
@@ -17,7 +17,7 @@ export const AccountDialog = ({ proceedToLogin, proceedToRegister }) => {
         <AccountButton
           icon="account-edit"
           mode="contained"
-          //   accessibilityLabel="Register for a meals to go account"
+          accessibilityLabel="Register for a meals to go account"
           onPress={proceedToRegister}
         >
           Register

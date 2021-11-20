@@ -1,5 +1,4 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
 import { Platform } from "react-native";
 import styled from "styled-components/native";
 import WebView from "react-native-webview";

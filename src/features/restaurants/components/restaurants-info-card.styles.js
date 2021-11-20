@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components/native";
 import { Card } from "react-native-paper";
-
+import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
+
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 
@@ -39,7 +39,6 @@ export const OpenContainer = styled.View`
   flex-direction: row-reverse;
 `;
 
-// changelog: removed elevation={10}
 export const OpenIcon = () => (
   <SvgXml xml={open} width={30} height={30} zIndex={10} />
 );

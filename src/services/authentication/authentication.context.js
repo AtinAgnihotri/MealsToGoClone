@@ -1,7 +1,5 @@
 import React, { useState, createContext, useEffect } from "react";
-
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-
 import { loginRequest, createRequest } from "./authentication.service";
 
 export const AuthenticationContext = createContext();
@@ -18,7 +16,6 @@ export const AuthenticationContextProvider = ({ children }) => {
       setUser(usr);
     }
     setIsInitializing(false);
-    // setIsLoading(false);
   });
 
   const onLogin = (email, password) => {

@@ -21,11 +21,6 @@ export const MapScreen = ({ navigation }) => {
 
   const [latDelta, setLatDelta] = useState(0);
 
-  const openRestaurantDetails = (restaurant) => {
-    // navigateToRestaurantsTab();
-    navigation.navigate("RestaurantDetails", { restaurant });
-  };
-
   useEffect(() => {
     const northEastLat = viewport.northeast.lat;
     const southWestLat = viewport.southwest.lat;
@@ -65,7 +60,6 @@ export const MapScreen = ({ navigation }) => {
               </MapView.Callout>
             </MapView.Marker>
           );
-          //   return null;
         })}
       </Map>
     </>

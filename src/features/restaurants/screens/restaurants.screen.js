@@ -10,7 +10,7 @@ import { FavouritesContext } from "../../../services/favourites/favourites.conte
 import { LoadingState } from "../components/restaurants.styles";
 import { RestaurantList } from "../components/restaurant-list.styles";
 import { Search } from "../components/search.component";
-import { Loader } from "../../../components/loader/loader.component";
+import { FadeInView } from "../../../components/animations/fade.animation";
 
 // Every styled component gets theme as their props
 export const RestaurantScreen = ({ navigation }) => {
@@ -34,23 +34,25 @@ export const RestaurantScreen = ({ navigation }) => {
               onNavigate={navigation.navigate}
             />
           )}
-          <RestaurantList
-            data={restaurants}
-            renderItem={({ item }) => {
-              return (
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate("RestaurantDetails", { item })
-                  }
-                >
-                  <Spacer position="bottom" size="large">
-                    <RestaurantInfoCard restaurant={item} />
-                  </Spacer>
-                </TouchableOpacity>
-              );
-            }}
-            keyExtractor={(item) => item.name}
-          />
+          <FadeInView>
+            <RestaurantList
+              data={restaurants}
+              renderItem={({ item }) => {
+                return (
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate("RestaurantDetails", { item })
+                    }
+                  >
+                    <Spacer position="bottom" size="large">
+                      <RestaurantInfoCard restaurant={item} />
+                    </Spacer>
+                  </TouchableOpacity>
+                );
+              }}
+              keyExtractor={(item) => item.name}
+            />
+          </FadeInView>
         </>
       )}
     </SafeArea>

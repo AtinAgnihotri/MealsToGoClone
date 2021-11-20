@@ -38,29 +38,25 @@ export const AccountBackground = ({ children }) => (
   </SafeArea>
 );
 
-// justify-content: center;
-// align-items: center;
 export const AccountContainer = styled.View`
   background-color: rgba(255, 255, 255, 0.7);
   padding: ${(props) => props.theme.space[4]};
   margin-top: ${(props) => props.theme.space[2]};
 `;
 
-// width: ${(props) => props.theme.sizes[5]};
 export const AccountButton = styled(Button).attrs({
   color: colors.brand.primary,
 })`
   padding: ${(props) => props.theme.space[2]};
 `;
 
-// height: ${(props) => props.theme.sizes[2]};
 export const AccountInput = styled(TextInput).attrs({
   mode: "flat",
 })`
   width: ${(props) => props.theme.sizes[5]};
 `;
 
-export const AccountLoadingState = styled(Loader).attrs({
+const AccountLoadingState = styled(Loader).attrs({
   color: colors.brand.primary,
 })`
   width: ${(props) => props.theme.sizes[1]};
@@ -74,7 +70,7 @@ export const AccountLoader = () => (
   </>
 );
 
-export const AnimationContainer = styled.View`
+const AnimationContainer = styled.View`
   width: 100%;
   height: 40%;
   position: absolute;

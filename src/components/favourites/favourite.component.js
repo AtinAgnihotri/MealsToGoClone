@@ -4,12 +4,6 @@ import { AntDesign } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 import { FavouritesContext } from "../../services/favourites/favourites.context";
 
-/*
-top: ${(props) => props.theme.sizes[0]};
-  right: ${(props) => props.theme.sizes[0]};
-  width:${(props) => props.theme.sizes[3]}
-*/
-
 const FavouriteButton = styled(TouchableOpacity)`
   position: absolute;
   top: ${(props) => props.theme.sizes[2]};

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ScrollView, FlatList } from "react-native";
-import { SafeArea } from "../../../components/utilities/safe-area.component";
+import { ScrollView } from "react-native";
 
+import { SafeArea } from "../../../components/utilities/safe-area.component";
 import { RestaurantInfoCard } from "../components/restaurants-info-card.component";
 import {
   BreakfastAccordian,

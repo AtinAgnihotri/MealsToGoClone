@@ -1,14 +1,11 @@
 import React from "react";
-
 import {
   createStackNavigator,
   CardStyleInterpolators,
 } from "@react-navigation/stack";
-import { SettingsScreen } from "../../features/settings/screens/settings.screen";
-import { DummyScreen } from "./navutils.devhelper";
-import { FavouritesScreen } from "../../features/settings/screens/favourites.screen";
 
-const FavouritesScreen2 = () => DummyScreen("Favourites");
+import { SettingsScreen } from "../../features/settings/screens/settings.screen";
+import { FavouritesScreen } from "../../features/settings/screens/favourites.screen";
 
 const Stack = createStackNavigator();
 

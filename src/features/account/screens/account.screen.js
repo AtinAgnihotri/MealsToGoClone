@@ -1,15 +1,8 @@
 import React, { useContext } from "react";
-import { ImageBackground, Text } from "react-native";
-import { Button } from "react-native-paper";
-import LottieView from "lottie-react-native";
 
-import { Spacer } from "../../../components/spacer/spacer.component";
-
-import { DummyScreen } from "../../../infrastructure/navigation/navutils.devhelper";
 import {
   AccountBackground,
   AccountContainer,
-  AccountButton,
   AccountLoader,
   AccountLabel,
   WatermelonAnimation,
@@ -19,6 +12,7 @@ import { AuthenticationContext } from "../../../services/authentication/authenti
 
 export const AccountScreen = ({ navigation }) => {
   const { isInitializing } = useContext(AuthenticationContext);
+
   const proceedToLogin = () => {
     navigation.navigate("Login");
   };

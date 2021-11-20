@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-import { DummyScreen } from "../../../infrastructure/navigation/navutils.devhelper";
+import { Snackbar } from "react-native-paper";
+
 import {
   AccountBackground,
   AccountButton,
@@ -7,12 +8,9 @@ import {
   AccountLoader,
   AccountLabel,
 } from "../components/account.styles";
-
-import { Snackbar } from "react-native-paper";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 import { Text } from "../../../components/typography/text.component";
 import accountLoginErrors from "../components/account-login-errors.json";
-
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { RegisterDialog } from "../components/register-dialog.component";
 
