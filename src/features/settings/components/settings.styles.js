@@ -1,4 +1,5 @@
 import React from "react";
+import { TouchableOpacity } from "react-native";
 import { List, Avatar } from "react-native-paper";
 import styled from "styled-components/native";
 
@@ -17,13 +18,21 @@ const UserIcon = styled(Avatar.Icon).attrs({
   background-color: ${(props) => props.theme.colors.brand.primary};
 `;
 
+const UserImage = styled(Avatar.Image).attrs({
+  size: 180,
+})`
+  background-color: ${(props) => props.theme.colors.brand.primary};
+`;
+
 const UserEmail = styled(Text).attrs({ variant: "body" })`
   font-size: ${(props) => props.theme.fontSizes.h5};
 `;
 
-export const UserAvatar = ({ user }) => (
+export const UserAvatar = ({ user, onIconPress, source }) => (
   <UserIconContainer>
-    <UserIcon />
+    <TouchableOpacity onPress={onIconPress}>
+      {source ? <UserImage source={source} /> : <UserIcon />}
+    </TouchableOpacity>
     <Spacer position="top" size="large">
       <UserEmail>{user.email}</UserEmail>
     </Spacer>
