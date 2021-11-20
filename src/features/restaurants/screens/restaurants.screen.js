@@ -19,8 +19,7 @@ export const RestaurantScreen = ({ navigation }) => {
   const { favourites } = useContext(FavouritesContext);
   const [isToggled, setIsToggled] = useState(false);
   return (
-    // TODO: Maybe try removing the Safe Area
-    <SafeArea>
+    <>
       <Search
         isFavouritesToggled={isToggled}
         onFavouritesToggle={() => setIsToggled(!isToggled)}
@@ -55,6 +54,6 @@ export const RestaurantScreen = ({ navigation }) => {
           </FadeInView>
         </>
       )}
-    </SafeArea>
+    </>
   );
 };
