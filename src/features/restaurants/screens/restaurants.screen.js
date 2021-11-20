@@ -7,7 +7,8 @@ import { FavouritesBar } from "../../../components/favourites/favourites-bar.com
 import { SafeArea } from "../../../components/utilities/safe-area.component";
 import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
-import { LoadingState, RestaurantList } from "./restaurants.styles";
+import { LoadingState } from "../components/restaurants.styles";
+import { RestaurantList } from "../components/restaurant-list.styles";
 import { Search } from "../components/search.component";
 import { Loader } from "../../../components/loader/loader.component";
 

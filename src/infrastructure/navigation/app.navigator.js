@@ -6,12 +6,14 @@ import { Ionicons } from "@expo/vector-icons";
 import { DummyScreen } from "./navutils.devhelper";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
+import { SettingsScreen } from "../../features/settings/screens/settings.screen";
 import { SafeArea } from "../../components/utilities/safe-area.component";
 import { Button } from "react-native-paper";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
 import { RestaurantContextProvider } from "../../services/restaurants/restaurants.context";
 import { LocationContextProvider } from "../../services/location/location.context";
+import { SettingsNavigator } from "./settings.navigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -60,8 +62,8 @@ export const AppNavigator = () => (
               }}
             />
             <Tab.Screen
-              name="Settings"
-              component={Settings}
+              name="SettingsTab"
+              component={SettingsNavigator}
               options={{
                 tabBarLabel: "Settings",
                 tabBarIcon: ({ color, size }) => (
